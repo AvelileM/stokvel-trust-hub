@@ -7,8 +7,6 @@ const NAV = [
   { to: "/ledger", label: "Ledger" },
   { to: "/upload", label: "Upload POP" },
   { to: "/reports", label: "Reports" },
-  { to: "/admin", label: "Admin" },
-  { to: "/pricing", label: "Pricing" },
 ] as const;
 
 export function SiteHeader() {
@@ -16,13 +14,13 @@ export function SiteHeader() {
   return (
     <header className="border-b-2 border-ink bg-paper sticky top-0 z-40">
       <div className="container-edit flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2.5" aria-label="TrustVel home">
-          <span className="inline-flex items-center justify-center w-8 h-8 bg-ink text-paper font-mono font-semibold text-sm">TV</span>
-          <span className="font-semibold text-lg tracking-tight">TrustVel<span className="text-aloe">·</span><span className="text-aloe font-mono text-xs align-middle ml-1">RSA</span></span>
+        <Link to="/" className="flex items-center gap-2.5" aria-label="StockVel-RSA home">
+          <span className="inline-flex items-center justify-center w-8 h-8 bg-ink text-paper font-mono font-semibold text-sm">SV</span>
+          <span className="font-semibold text-lg tracking-tight">StockVel<span className="text-aloe">·</span><span className="text-aloe font-mono text-xs align-middle ml-1">RSA</span></span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
-          {NAV.slice(1, -1).map((item) => (
+          {NAV.slice(1).map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -35,8 +33,8 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Link to="/pricing" className="text-[15px] font-medium text-ink/70 hover:text-ink">Pricing</Link>
-          <Link to="/dashboard" className="btn-stamp btn-aloe h-11 px-5 text-[14px]">Open ledger</Link>
+          <Link to="/login" className="text-[15px] font-medium text-ink/70 hover:text-ink">Login</Link>
+          <Link to="/login" className="btn-stamp btn-aloe h-11 px-5 text-[14px]">Create group</Link>
         </div>
 
         <button
@@ -68,6 +66,13 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              to="/login"
+              onClick={() => setOpen(false)}
+              className="py-3 text-[17px] font-semibold text-aloe"
+            >
+              Login / Register
+            </Link>
           </nav>
         </div>
       )}

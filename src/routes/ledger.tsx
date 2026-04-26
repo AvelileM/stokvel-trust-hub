@@ -9,8 +9,8 @@ import { GROUP, LEDGER } from "@/lib/mock-data";
 export const Route = createFileRoute("/ledger")({
   head: () => ({
     meta: [
-      { title: "Transparency Ledger · TrustVel" },
-      { name: "description", content: "The shared, undeniable record of every stokvel contribution. Filter, search, and export." },
+      { title: "Shared Ledger · StockVel-RSA" },
+      { name: "description", content: "The shared record of every stokvel contribution — visible to all members." },
     ],
   }),
   component: LedgerPage,
