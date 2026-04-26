@@ -8,7 +8,7 @@ import { GROUP } from "@/lib/mock-data";
 export const Route = createFileRoute("/upload")({
   head: () => ({
     meta: [
-      { title: "Upload POP · TrustVel" },
+      { title: "Upload Proof of Payment · StockVel-RSA" },
       { name: "description", content: "Upload your proof of payment in seconds. Auto-tagged with date, amount, and reference." },
     ],
   }),
