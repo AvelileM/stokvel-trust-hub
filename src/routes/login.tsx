@@ -71,22 +71,19 @@ function LoginPage() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
-                    // MVP: demo only
-                    window.location.href = "/dashboard";
+                    // MVP: demo only — register goes to the create-group wizard
+                    window.location.href = mode === "register" ? "/create" : "/dashboard";
                   }}
                   className="p-6 md:p-8 space-y-5"
                 >
                   {mode === "register" && (
-                    <>
-                      <Field label="Your full name" name="name" placeholder="e.g. Sibongile Dlamini" />
-                      <Field label="Stokvel group name" name="group" placeholder="e.g. Siyakhula Family Stokvel" />
-                    </>
+                    <Field label="Your full name" name="name" placeholder="e.g. Sibongile Dlamini" />
                   )}
                   <Field label="Mobile number" name="phone" type="tel" placeholder="082 000 0000" inputMode="tel" />
                   <Field label="Password" name="password" type="password" placeholder="At least 6 characters" />
 
                   <button type="submit" className="btn-stamp btn-aloe w-full mt-2">
-                    {mode === "login" ? "Sign in" : "Create my group"}
+                    {mode === "login" ? "Sign in" : "Continue · Set up group"}
                   </button>
 
                   <p className="num text-[12px] text-ink/55 text-center pt-2">

@@ -34,7 +34,7 @@ export function SiteHeader() {
 
         <div className="hidden lg:flex items-center gap-3">
           <Link to="/login" className="text-[15px] font-medium text-ink/70 hover:text-ink">Login</Link>
-          <Link to="/login" className="btn-stamp btn-aloe h-11 px-5 text-[14px]">Create group</Link>
+          <Link to="/create" className="btn-stamp btn-aloe h-11 px-5 text-[14px]">Create group</Link>
         </div>
 
         <button

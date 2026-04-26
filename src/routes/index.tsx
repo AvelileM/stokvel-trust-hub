@@ -46,7 +46,7 @@ function HomePage() {
             </Reveal>
             <Reveal delay={360}>
               <div className="mt-9 flex flex-col sm:flex-row gap-3">
-                <Link to="/login" className="btn-stamp btn-aloe">
+                <Link to="/create" className="btn-stamp btn-aloe">
                   Create your group
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
                     <path d="M3 9h12m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
@@ -223,7 +223,7 @@ function HomePage() {
           </Reveal>
           <Reveal delay={150}>
             <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/login" className="btn-stamp btn-aloe">Create your group · Free</Link>
+              <Link to="/create" className="btn-stamp btn-aloe">Create your group · Free</Link>
               <Link to="/dashboard" className="btn-stamp btn-ghost">See the dashboard</Link>
             </div>
           </Reveal>

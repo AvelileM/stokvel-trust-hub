@@ -14,7 +14,9 @@ import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LedgerRouteImport } from './routes/ledger'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as CreateRouteImport } from './routes/create'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as JoinCodeRouteImport } from './routes/join.$code'
 
 const UploadRoute = UploadRouteImport.update({
   id: '/upload',
@@ -41,59 +43,95 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreateRoute = CreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JoinCodeRoute = JoinCodeRouteImport.update({
+  id: '/join/$code',
+  path: '/join/$code',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/create': typeof CreateRoute
   '/dashboard': typeof DashboardRoute
   '/ledger': typeof LedgerRoute
   '/login': typeof LoginRoute
   '/reports': typeof ReportsRoute
   '/upload': typeof UploadRoute
+  '/join/$code': typeof JoinCodeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/create': typeof CreateRoute
   '/dashboard': typeof DashboardRoute
   '/ledger': typeof LedgerRoute
   '/login': typeof LoginRoute
   '/reports': typeof ReportsRoute
   '/upload': typeof UploadRoute
+  '/join/$code': typeof JoinCodeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/create': typeof CreateRoute
   '/dashboard': typeof DashboardRoute
   '/ledger': typeof LedgerRoute
   '/login': typeof LoginRoute
   '/reports': typeof ReportsRoute
   '/upload': typeof UploadRoute
+  '/join/$code': typeof JoinCodeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/ledger' | '/login' | '/reports' | '/upload'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/ledger' | '/login' | '/reports' | '/upload'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
+    | '/create'
     | '/dashboard'
     | '/ledger'
     | '/login'
     | '/reports'
     | '/upload'
+    | '/join/$code'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/create'
+    | '/dashboard'
+    | '/ledger'
+    | '/login'
+    | '/reports'
+    | '/upload'
+    | '/join/$code'
+  id:
+    | '__root__'
+    | '/'
+    | '/create'
+    | '/dashboard'
+    | '/ledger'
+    | '/login'
+    | '/reports'
+    | '/upload'
+    | '/join/$code'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CreateRoute: typeof CreateRoute
   DashboardRoute: typeof DashboardRoute
   LedgerRoute: typeof LedgerRoute
   LoginRoute: typeof LoginRoute
   ReportsRoute: typeof ReportsRoute
   UploadRoute: typeof UploadRoute
+  JoinCodeRoute: typeof JoinCodeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -133,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/create': {
+      id: '/create'
+      path: '/create'
+      fullPath: '/create'
+      preLoaderRoute: typeof CreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -140,16 +185,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/join/$code': {
+      id: '/join/$code'
+      path: '/join/$code'
+      fullPath: '/join/$code'
+      preLoaderRoute: typeof JoinCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CreateRoute: CreateRoute,
   DashboardRoute: DashboardRoute,
   LedgerRoute: LedgerRoute,
   LoginRoute: LoginRoute,
   ReportsRoute: ReportsRoute,
   UploadRoute: UploadRoute,
+  JoinCodeRoute: JoinCodeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
