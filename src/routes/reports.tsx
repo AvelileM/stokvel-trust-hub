@@ -7,8 +7,8 @@ import { GROUP } from "@/lib/mock-data";
 export const Route = createFileRoute("/reports")({
   head: () => ({
     meta: [
-      { title: "Reports · TrustVel" },
-      { name: "description", content: "Monthly statements, contribution history, and exports for your stokvel." },
+      { title: "Reports · StockVel-RSA" },
+      { name: "description", content: "Download monthly PDF statements for your stokvel group." },
     ],
   }),
   component: ReportsPage,

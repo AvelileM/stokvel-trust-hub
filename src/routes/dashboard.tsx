@@ -8,8 +8,8 @@ import { GROUP, LEDGER, ACTIVITY } from "@/lib/mock-data";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Dashboard · TrustVel" },
-      { name: "description", content: "Your stokvel at a glance: contributions in, members outstanding, next payout, and recent activity." },
+      { title: "Dashboard · StockVel-RSA" },
+      { name: "description", content: "Your stokvel at a glance: who paid, who hasn't, and the shared monthly ledger." },
     ],
   }),
   component: DashboardPage,
@@ -43,10 +43,10 @@ function DashboardPage() {
       <section className="border-b-2 border-ink">
         <div className="container-edit grid grid-cols-2 lg:grid-cols-4 gap-px bg-rule">
           {[
-            { k: "Members", v: GROUP.members.toString(), s: `${GROUP.paid} paid · ${GROUP.outstanding} outstanding` },
-            { k: "Group total this cycle", v: fmt.format(GROUP.groupTotal), s: `Expected ${fmt.format(GROUP.expectedTotal)}` },
-            { k: "Cycle progress", v: `${pct}%`, s: `Goal: 100% by 28 Oct` },
-            { k: "Next payout", v: GROUP.nextPayout, s: `Recipient: Mam' Sibongile D.` },
+            { k: "Members", v: GROUP.members.toString(), s: `${GROUP.paid} paid · ${GROUP.outstanding} unpaid` },
+            { k: "Recorded this month", v: fmt.format(GROUP.groupTotal), s: `Expected ${fmt.format(GROUP.expectedTotal)}` },
+            { k: "Month progress", v: `${pct}%`, s: `Goal: everyone paid by month-end` },
+            { k: "Next statement", v: "01 Nov 2025", s: `Auto-generated PDF` },
           ].map((s, i) => (
             <Reveal key={s.k} delay={i * 60} className="bg-paper p-6 md:p-7">
               <p className="num eyebrow text-ink/60">{s.k}</p>
