@@ -71,8 +71,8 @@ function LoginPage() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
-                    // MVP: demo only
-                    window.location.href = "/dashboard";
+                    // MVP: demo only — register goes to the create-group wizard
+                    window.location.href = mode === "register" ? "/create" : "/dashboard";
                   }}
                   className="p-6 md:p-8 space-y-5"
                 >
